@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from .models import Ubytovani
 
-# Create your views here.
+
+def index(request):
+    context = {
+        'nadpis': 'Ubytovací zařízení',
+        'mista': Ubytovani.objects.all()
+    }
+    return render(request, 'index.html', context=context)
